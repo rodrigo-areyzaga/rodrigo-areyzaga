@@ -19,7 +19,7 @@ A Docker lab demonstrating a path-indexed vs. value-indexed security triage mism
 > *Is the right boundary being tested at all?*
 
 ### [corridor-id](https://github.com/rodrigo-areyzaga/corridor-id)
-Given a Docker Compose topology, identifies which nodes are corridor nodes — services that expand forward reach from exposed surfaces into deeper parts of the environment. No asset-value labels. No human classification. Reach and graph position only. Validated against four architecturally different topologies: two produce corridor nodes, two correctly produce none.
+Given a service topology, identifies which nodes are corridor nodes — services that expand forward reach from exposed surfaces into deeper parts of the environment. No asset-value labels. No human classification. Reach and graph position only. Currently parses Docker Compose files, with a format-agnostic core validated against hand-built topologies. Tested against four architecturally different topologies: two produce corridor nodes, two correctly produce none.
 
 > *Which nodes become important because of where they sit, not what they store?*
 
