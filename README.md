@@ -18,6 +18,11 @@ A Docker lab demonstrating a path-indexed vs. value-indexed security triage mism
 
 > *Is the right boundary being tested at all?*
 
+### [corridor-id](https://github.com/rodrigo-areyzaga/corridor-id)
+Given a Docker Compose topology, identifies which nodes are corridor nodes — services that expand forward reach from exposed surfaces into deeper parts of the environment. No asset-value labels. No human classification. Reach and graph position only. Validated against four architecturally different topologies: two produce corridor nodes, two correctly produce none.
+
+> *Which nodes become important because of where they sit, not what they store?*
+
 ### [crapi-auth-suite](https://github.com/rodrigo-areyzaga/crapi-auth-suite)
 Cypress authorization-boundary test suite targeting OWASP crAPI. 17 passing tests across 3 spec files. Confirmed BOLA/IDOR on vehicle location endpoint (HIGH) and information disclosure on community posts (MEDIUM).
 
@@ -31,4 +36,4 @@ Cypress authorization-boundary test suite targeting OWASP crAPI. 17 passing test
 
 ## Learning log
 
-[Cybersecurity](https://github.com/rodrigo-areyzaga/Cybersecurity) — a living record of my security education: Google Cybersecurity Professional Certificate, TryHackMe, Cisco Networking Academy, and the path that led to accguard and corridor-lab.
+[Cybersecurity](https://github.com/rodrigo-areyzaga/Cybersecurity) — a living record of my security education: Google Cybersecurity Professional Certificate, TryHackMe, Cisco Networking Academy, and the path that led to accguard, corridor-lab, and corridor-id.
