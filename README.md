@@ -2,81 +2,77 @@
 
 I build security verification tools for teams that want evidence, not assumptions.
 
-My work focuses on AppSec, authorization testing, reachability triage, query/data exposure boundaries, and detection-oriented security validation.
+My work sits between QA and AppSec: authorization testing, reachability triage, query/data exposure boundaries, and AI interaction-contract verification.
 
-The common thread across these projects is simple: test whether security controls actually hold under realistic paths, replayable evidence, and observed outputs.
+The aim is simple: turn security expectations into reproducible checks with observable output.
 
 Based in Mexico City.
 
 ---
 
-## Usable early tools
+## Haritzarri
 
-These tools are under active development. They are early, narrow, and intentionally focused: each one is built around a specific security question, reproducible evidence, and clear documentation of what it does and does not cover.
+A family of deterministic security verification tools. Each one tests one boundary.
 
-### [accguard](https://github.com/rodrigo-areyzaga/accguard)
+*Haritz* means oak. *Arri* means stone. Together they reflect the idea that every tool is built on one testable security boundary.
 
-Authorization regression testing for APIs, focused on OWASP A01, BOLA/IDOR, and cross-user access-control failures.
+### [mozorrarri](https://github.com/rodrigo-areyzaga/mozorrarri) *(formerly accguard)*
 
-Captures authenticated HTTP traffic, replays authorization-relevant requests under a second user, and checks whether protected resources cross user boundaries.
+Checks whether protected resources cross ownership boundaries under replay.
 
-672 automated tests · external validation against targets including OWASP Juice Shop and VAmPI · confirmed deterministic findings with documented reproduction commands.
+`672 automated tests · external validation against Juice Shop and VAmPI`
 
-> *Does the authorization boundary actually hold under replay?*
+> Does the authorization boundary actually hold?
 
-### [corridor-id](https://github.com/rodrigo-areyzaga/corridor-id)
+### [giltzarri](https://github.com/rodrigo-areyzaga/giltzarri) *(formerly corridor-id)*
 
-Reachability and architecture triage for identifying where exposed surfaces create paths into deeper parts of a system.
+Identifies corridor nodes — services that expand forward reach from exposed surfaces, by graph position alone.
 
-Given a service topology, identifies corridor nodes — services that expand forward reach from exposed surfaces into deeper parts of the environment.
+`Validated against segmented, flat, and hand-built topologies`
 
-No asset-value labels. No manual classification. Graph position only.
+> Which nodes matter because of where they sit, not what they store?
 
-Validated against segmented Docker topologies, flat topologies, and hand-built topology graphs.
+### [mugarri](https://github.com/rodrigo-areyzaga/mugarri) *(formerly queryguard)*
 
-> *Which nodes become important because of where they sit, not what they store?*
+Verifies whether query results stay inside a declared data contract: allowed fields, forbidden fields, required fields, cardinality, and row-value constraints.
 
-### [queryguard](https://github.com/rodrigo-areyzaga/queryguard)
+`59 tests · 9 live SQLite validation cases · zero external dependencies`
 
-Validation tooling for query behavior, data exposure, and security-relevant result sets.
+> Did this result stay within its declared contract?
 
-Checks whether observed query results stay within a declared operation contract: allowed fields, forbidden fields, required fields, cardinality, and row-value constraints.
+### [lekuarri](https://github.com/rodrigo-areyzaga/lekuarri)
 
-59 tests across five batches · 9 live SQLite validation cases · zero external dependencies.
+Verifies whether an AI agent's response to a user request honored a declared interaction contract.
 
-> *Did this result stay within its declared contract?*
+`Cross-model behavioral testing · evidence-hashed verdicts`
+
+> Did this interaction honor its declared contract?
 
 ---
 
 ## Early-access feedback
 
-I’m opening a small early-access feedback program for accguard, corridor-id, and queryguard.
+I'm currently inviting developers, QA engineers, founders, or security practitioners to try any of these tools, and I'm looking for honest feedback on setup, workflow, evidence quality, limitations, and whether the tool would be useful in a real engineering environment.
 
-The first 5 developers, QA engineers, founders, or security practitioners willing to try one of these tools can use it for free in exchange for honest feedback on setup, workflow, evidence quality, limitations, and whether the tool fits a real engineering environment.
+Not a replacement for a pentest or audit — a way to test narrow security questions and help shape these tools.
 
-This is not a replacement for a pentest, audit, or full AppSec program. It is a practical way to test narrow security questions and help shape the tools before they become commercial offerings.
-
-Reach out via LinkedIn, or open an issue on the relevant repo with “early-access feedback” in the title.
+Reach out via LinkedIn, or open an issue with "early-access feedback" in the title.
 
 ---
 
-## Supporting validation projects
+## Supporting projects
 
 ### [corridor-lab](https://github.com/rodrigo-areyzaga/corridor-lab)
 
-Docker lab demonstrating a path-indexed vs. value-indexed security triage mismatch.
+The Docker lab giltzarri was built and validated against. No longer actively developed; preserved as the foundation for giltzarri's continued work.
 
-A service with no sensitive data can become high-priority when it functions as a corridor to downstream sensitive systems — and leaving that corridor unmonitored can make the path impossible to reconstruct after it is used.
-
-> *Is the right boundary being tested at all?*
+> Is the right boundary being tested at all?
 
 ### [crapi-auth-suite](https://github.com/rodrigo-areyzaga/crapi-auth-suite)
 
-Cypress authorization-boundary test suite targeting OWASP crAPI.
+Cypress test suite targeting OWASP crAPI. 17 passing tests, 3 spec files.
 
-17 passing tests across 3 spec files. Confirmed BOLA/IDOR on vehicle location endpoint and information disclosure on community posts.
-
-> *Can ownership expectations be expressed as executable tests?*
+> Can ownership expectations be expressed as executable tests?
 
 ---
 
