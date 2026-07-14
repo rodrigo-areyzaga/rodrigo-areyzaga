@@ -16,7 +16,7 @@ A family of deterministic security verification tools. Each one tests one bounda
 
 *Haritz* means oak. *Arri* means stone. Together they reflect the idea that every tool is built on one testable security boundary.
 
-### [mozorrarri](https://github.com/rodrigo-areyzaga/mozorrarri) *(formerly accguard)*
+### [jabearri](https://github.com/rodrigo-areyzaga/mozorrarri) *(formerly accguard/mozorrarri)*
 
 Checks whether protected resources cross ownership boundaries under replay.
 
