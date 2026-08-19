@@ -16,12 +16,11 @@ A family of deterministic security verification tools. Each one tests one bounda
 
 *Haritz* means oak. *Arri* means stone. Together they reflect the idea that every tool is built on one testable security boundary.
 
-### [jabearri](https://github.com/rodrigo-areyzaga/mozorrarri) *(formerly accguard/mozorrarri)*
+### [jabearri](https://github.com/rodrigo-areyzaga/jabearri) *(formerly accguard/mozorrarri)*
 
 Checks whether protected resources cross ownership boundaries under replay.
 
-`672 automated tests · external validation against Juice Shop and VAmPI`
-
+`963 automated tests · external validation against Juice Shop, crAPI, and VAmPI`
 > Does the authorization boundary actually hold?
 
 ### [giltzarri](https://github.com/rodrigo-areyzaga/giltzarri) *(formerly corridor-id)*
@@ -29,7 +28,6 @@ Checks whether protected resources cross ownership boundaries under replay.
 Identifies corridor nodes — services that expand forward reach from exposed surfaces, by graph position alone.
 
 `Validated against segmented, flat, and hand-built topologies`
-
 > Which nodes matter because of where they sit, not what they store?
 
 ### [mugarri](https://github.com/rodrigo-areyzaga/mugarri) *(formerly queryguard)*
@@ -37,26 +35,14 @@ Identifies corridor nodes — services that expand forward reach from exposed su
 Verifies whether query results stay inside a declared data contract: allowed fields, forbidden fields, required fields, cardinality, and row-value constraints.
 
 `59 tests · 9 live SQLite validation cases · zero external dependencies`
-
 > Did this result stay within its declared contract?
 
 ### [lekuarri](https://github.com/rodrigo-areyzaga/lekuarri)
 
-Verifies whether an AI agent's response to a user request honored a declared interaction contract.
+Verifies whether an AI agent's response to a user request honored a declared interaction contract. Includes a discovery pipeline that probes an unknown agent, identifies behavioral patterns, generates targeted follow-up probes from its own findings, and produces a candidate clause bounded strictly by observed evidence.
 
-`Cross-model behavioral testing · evidence-hashed verdicts`
-
+`362 tests · cross-model behavioral testing · evidence-hashed verdicts · three-round in-memory discovery`
 > Did this interaction honor its declared contract?
-
----
-
-## Early-access feedback
-
-I'm currently inviting developers, QA engineers, founders, or security practitioners to try any of these tools, and I'm looking for honest feedback on setup, workflow, evidence quality, limitations, and whether the tool would be useful in a real engineering environment.
-
-Not a replacement for a pentest or audit — a way to test narrow security questions and help shape these tools.
-
-Reach out via LinkedIn, or open an issue with "early-access feedback" in the title.
 
 ---
 
@@ -65,13 +51,11 @@ Reach out via LinkedIn, or open an issue with "early-access feedback" in the tit
 ### [corridor-lab](https://github.com/rodrigo-areyzaga/corridor-lab)
 
 The Docker lab giltzarri was built and validated against. No longer actively developed; preserved as the foundation for giltzarri's continued work.
-
 > Is the right boundary being tested at all?
 
 ### [crapi-auth-suite](https://github.com/rodrigo-areyzaga/crapi-auth-suite)
 
 Cypress test suite targeting OWASP crAPI. 17 passing tests, 3 spec files.
-
 > Can ownership expectations be expressed as executable tests?
 
 ---
