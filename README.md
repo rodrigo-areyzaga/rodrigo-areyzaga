@@ -2,9 +2,11 @@
 
 I build security verification tools for teams that want evidence, not assumptions.
 
-My work sits between QA and AppSec: authorization testing, reachability triage, query/data exposure boundaries, and AI interaction-contract verification.
+My work sits between QA and AppSec: authorization testing, reachability analysis, data-boundary verification, and AI interaction-contract discovery.
 
-The aim is simple: turn security expectations into reproducible checks with observable output.
+The goal is simple:
+
+**define the claim, challenge the boundary, preserve reproducible evidence, and state exactly where the conclusion stops.**
 
 Based in Mexico City.
 
@@ -12,36 +14,50 @@ Based in Mexico City.
 
 ## Haritzarri
 
-A family of deterministic security verification tools. Each one tests one boundary.
+Haritzarri is a family of deterministic verification tools built around one principle:
 
-*Haritz* means oak. *Arri* means stone. Together they reflect the idea that every tool is built on one testable security boundary.
+**claims are not evidence until the boundary has been challenged.**
+
+Each tool focuses on a narrow, testable question.
 
 ### [lekuarri](https://github.com/rodrigo-areyzaga/lekuarri)
 
-Verifies whether an AI agent's response to a user request honored a declared interaction contract. Includes a discovery pipeline that probes an unknown agent, identifies behavioral patterns, generates targeted follow-up probes from its own findings, and produces a candidate clause bounded strictly by observed evidence.
+AI interaction contract verification and behavioral discovery.
 
-`362 tests · cross-model behavioral testing · evidence-hashed verdicts · three-round in-memory discovery`
-> Did this interaction honor its declared contract?
+lekuarri verifies whether an AI agent’s response to a user request honored a declared interaction contract. Its discovery pipeline can also probe an agent without prior knowledge of its behavioral contract, identify recurring behavioral patterns, generate targeted follow-up probes from its own findings, and produce candidate clauses bounded strictly by observed evidence.
 
-### [jabearri](https://github.com/rodrigo-areyzaga/jabearri) *(formerly accguard/mozorrarri)*
+`362 tests · cross-model behavioral testing · evidence-hashed verdicts · evidence-driven behavioral discovery`
 
-Checks whether protected resources cross ownership boundaries under replay.
+> What behavioral boundary does this agent actually exhibit, and where does the evidence stop?
 
-`963 automated tests · external validation against Juice Shop, crAPI, and VAmPI`
+### [jabearri](https://github.com/rodrigo-areyzaga/jabearri)
+
+API authorization verification for QA teams.
+
+jabearri replays eligible object-level GET requests using a second effective credential value and compares the observed responses for evidence of cross-credential exposure.
+
+`963 automated tests · controlled validation against OWASP Juice Shop, crAPI, and VAmPI · read-only staging workflow`
+
 > Does the authorization boundary actually hold?
 
-### [giltzarri](https://github.com/rodrigo-areyzaga/giltzarri) *(formerly corridor-id)*
+### [giltzarri](https://github.com/rodrigo-areyzaga/giltzarri)
 
-Identifies corridor nodes — services that expand forward reach from exposed surfaces, by graph position alone.
+Reachability and corridor analysis.
+
+giltzarri identifies corridor nodes: services that expand forward reach from exposed surfaces because of where they sit in a graph, not because of what they store.
 
 `Validated against segmented, flat, and hand-built topologies`
-> Which nodes matter because of where they sit, not what they store?
 
-### [mugarri](https://github.com/rodrigo-areyzaga/mugarri) *(formerly queryguard)*
+> Which nodes matter because of where they sit?
 
-Verifies whether query results stay inside a declared data contract: allowed fields, forbidden fields, required fields, cardinality, and row-value constraints.
+### [mugarri](https://github.com/rodrigo-areyzaga/mugarri)
+
+Query and data-contract verification.
+
+mugarri verifies whether query results stay inside a declared data contract, including allowed fields, forbidden fields, required fields, cardinality, and row-value constraints.
 
 `59 tests · 9 live SQLite validation cases · zero external dependencies`
+
 > Did this result stay within its declared contract?
 
 ---
@@ -50,16 +66,16 @@ Verifies whether query results stay inside a declared data contract: allowed fie
 
 ### [corridor-lab](https://github.com/rodrigo-areyzaga/corridor-lab)
 
-The Docker lab giltzarri was built and validated against. No longer actively developed; preserved as the foundation for giltzarri's continued work.
-> Is the right boundary being tested at all?
+Docker-based lab used to develop and validate the reachability model behind giltzarri. Preserved as the experimental foundation for continued verification work.
 
 ### [crapi-auth-suite](https://github.com/rodrigo-areyzaga/crapi-auth-suite)
 
-Cypress test suite targeting OWASP crAPI. 17 passing tests, 3 spec files.
-> Can ownership expectations be expressed as executable tests?
+Cypress test suite targeting OWASP crAPI.
+
+`17 passing tests · 3 spec files`
 
 ---
 
 ## Writing
 
-[The Service That Stored Nothing Sensitive But Still Became High Priority](https://dev.to/victor_areyzaga/the-service-that-stored-nothing-sensitive-but-still-became-high-priority-40c4) — dev.to
+[The Service That Stored Nothing Sensitive But Still Became High Priority](https://dev.to/victor_areyzaga/the-service-that-stored-nothing-sensitive-but-still-became-high-priority-40c4) — a practical exploration of why reachability can matter more than the sensitivity of the service itself.
