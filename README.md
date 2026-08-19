@@ -16,6 +16,13 @@ A family of deterministic security verification tools. Each one tests one bounda
 
 *Haritz* means oak. *Arri* means stone. Together they reflect the idea that every tool is built on one testable security boundary.
 
+### [lekuarri](https://github.com/rodrigo-areyzaga/lekuarri)
+
+Verifies whether an AI agent's response to a user request honored a declared interaction contract. Includes a discovery pipeline that probes an unknown agent, identifies behavioral patterns, generates targeted follow-up probes from its own findings, and produces a candidate clause bounded strictly by observed evidence.
+
+`362 tests · cross-model behavioral testing · evidence-hashed verdicts · three-round in-memory discovery`
+> Did this interaction honor its declared contract?
+
 ### [jabearri](https://github.com/rodrigo-areyzaga/jabearri) *(formerly accguard/mozorrarri)*
 
 Checks whether protected resources cross ownership boundaries under replay.
@@ -36,13 +43,6 @@ Verifies whether query results stay inside a declared data contract: allowed fie
 
 `59 tests · 9 live SQLite validation cases · zero external dependencies`
 > Did this result stay within its declared contract?
-
-### [lekuarri](https://github.com/rodrigo-areyzaga/lekuarri)
-
-Verifies whether an AI agent's response to a user request honored a declared interaction contract. Includes a discovery pipeline that probes an unknown agent, identifies behavioral patterns, generates targeted follow-up probes from its own findings, and produces a candidate clause bounded strictly by observed evidence.
-
-`362 tests · cross-model behavioral testing · evidence-hashed verdicts · three-round in-memory discovery`
-> Did this interaction honor its declared contract?
 
 ---
 
